@@ -1,24 +1,24 @@
 name: test
 
-on:
-    push:
-        branches:
-            - main
+on: 
+  push:
+    branch:
+      - main
 
-pull_request:
+  pull_request:
     branches:
-        - main
+      - main
 
 jobs:
-    test:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v3
-            - name: Install node
-              uses: actions/setup-node@v3
-            - run: npm install -g bats
-            - run: bats -v
-            - run: echo "화이팅!"
-            - run: echo "나는 ${{github.actor}}이에요."
-            - run: echo "${{github.event_name}} event에 의해서 자동으로 실행되었어요."
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install node
+        uses: actions/setup-node@v3
+      - run: npm install -g bats
+      - run: bats -v
+      - run: echo "힘내 오늘도 화이팅!"
+      - run: echo "나는 ${{github.actor}}야"
+      - run: echo "${{github.event_name}} event에 의해서 자동으로 실행됐어요."
